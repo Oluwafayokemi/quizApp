@@ -1,4 +1,4 @@
-var questions = [{
+const questions = [{
 	"question": "what is Computer science?",
 	"option1": "the study of problems, problem-solving, and the solutions that come out of the problem-solving process",
 	"option2": "the study of computers, hardware and software.",
@@ -34,5 +34,5 @@ var questions = [{
 	"option3": "css is used for styling webpage",
 	"option4": "php is used for styling webpage",
 	"answer": "3"
-}
-]
+}];
+
