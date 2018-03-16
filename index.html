@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QuizApp</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	
+	<div class="grid" id="quizContainer">
+		<div id="grid">
+			<h1>Quiz</h1>
+			<hr class="hr1">
+			<p id="question" class="question"></p>
+			<div class="checkbox">
+				<input type="radio" name="option" id="option1" value="1">
+				<label class="option" for="option1"></label>
+			</div>
+			<div class="checkbox">
+					<input type="radio" name="option" id="option2" value="2">
+					<label class="option" for="option2"></label>
+			</div>
+			<div class="checkbox">
+					<input type="radio" name="option" id="option3" value="3">
+					<label class="option" for="option3">  </label>
+				</div>
+			<div class="checkbox">
+					<input type="radio" name="option" id="option4" value="4">
+					<label class="option" for="option4"></label>
+			</div>
+			<hr class="hr2">
+			<a href="#" id="previousButton" class="next btn">Next question &raquo;</a>
+			<a href="#" id="nextButton" class="previous btn" onclick="loadNextQuestion();">&laquo; Previous</a>
+			
+	</div>
+	<div id="result" class="container result" style=display:none"></div>
+
+</div>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="quiz.js"></script>
+	<script type="text/javascript" src="quiz_controller.js"></script>
+</body>
+</html>
