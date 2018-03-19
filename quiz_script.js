@@ -11,7 +11,7 @@ const result = document.querySelector("#result");
 let currentQuestion = 0,
     score = 0,
     totalQuestions = questions.length,
-    answer = [];
+    answer = null;
 
 let selectedOption = document.querySelectorAll('input[type=radio]');
 
@@ -32,7 +32,7 @@ const unCheckRadioButton = () => {
 
 const setQuestion = (questionNumber) =>  {
     let onQuestion = questions[questionNumber];
-    quizQuestion.textContent = questionNumber + 1 + ". " + onQuestion.question;
+    quizQuestion.textContent = (questionNumber + 1) + ". " + onQuestion.question;
 
     choice1.textContent = onQuestion.option1;
     choice2.textContent = onQuestion.option2;
@@ -42,23 +42,22 @@ const setQuestion = (questionNumber) =>  {
 }
 
 const setNextQuestion = () => {
-		 if(questions[currentQuestion].answer === answer) {
-    score += 5; 
+  if(questions[currentQuestion].answer === answer) {
+    score += 5;
   }
   unCheckRadioButton();
   currentQuestion++;
   
-	if(currentQuestion == totalQuestions - 1) {
-		nextButton.innerHtml = 'Finish';
+  if(currentQuestion == totalQuestions - 1) {
+    nextButton.innerHtml = 'Finish';
     nextButton.setAttribute('disabled', 'disabled');
-	}
-	if(currentQuestion === totalQuestions){
-		grid.style.display = 'none';
-		result.style.display = 'block';
-		result.textContent = 'Your Score: ' + score;
-	}
-  nextButton.setAttribute('disabled', 'disabled');
-  
+  }
+  if(currentQuestion === totalQuestions){
+    grid.style.display = 'none';
+    result.style.display = 'block';
+    result.textContent = 'Your Score: '+ score;
+  }
+  nextButton.setAttribute('disabled', 'disabled');  
   if(currentQuestion < totalQuestions){
     setQuestion(currentQuestion);
   }
