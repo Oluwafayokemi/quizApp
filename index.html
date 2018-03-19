@@ -6,33 +6,33 @@
 </head>
 <body>
 	
-	<div class="grid" id="quizContainer">
+		<div class="grid" id="quizContainer">
 		<div id="grid">
-			<h1>Quiz</h1>
+			<h1>QUIZ</h1>
 			<hr class="hr1">
 			<p id="question" class="question"></p>
-			<div class="checkbox">
+      <form onChange="checkRadioButton();">
+			<div class="answer">
 				<input type="radio" name="option" id="opt1" value="1">
-				<label class="option" for="opt1"></label>
+				<label id="option1" class="option" for="opt1"></label>
 			</div>
-			<div class="checkbox">
+			<div class="answer">
 					<input type="radio" name="option" id="opt2" value="2">
-					<label class="option" for="opt2"></label>
+					<label id="option2" class="option" for="opt2"></label>
 			</div>
-			<div class="checkbox">
+			<div class="answer">
 					<input type="radio" name="option" id="opt3" value="3">
-					<label class="option" for="opt3">  </label>
-				</div>
-			<div class="checkbox">
-					<input type="radio" name="option" id="opt4" value="4">
-					<label class="option" for="opt4"></label>
+					<label id="option3" class="option" for="opt3">  </label>
 			</div>
-			<hr class="hr2">
-			<a href="#" id="nextButton" class="next btn" onclick="loadNextQuestion();">Next question &raquo;</a>
-			<!-- <a href="#" id="previousButton" class="next btn" onclick="loadNextQuestion();">&laquo; Previous</a> -->
-			
+			<div class="answer">
+					<input type="radio" name="option" id="opt4" value="4">
+					<label id="option4" class="option" for="opt4"></label>
+			</div>
+      </form>
+		  <hr class="hr2">
+    <button id="nextButton" class="next btn" disabled  onclick="setNextQuestion();">Next question &raquo;</button>		
 	</div>
-	<div id="result" class="container result" style=display:none"></div>
+	<div id="result" class="container result" ></div>
 
 </div>
 	<script type="text/javascript" src="question.js"></script>

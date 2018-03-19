@@ -1,47 +1,66 @@
-var container = document.querySelector("#quizContainer");
-var questionEl = document.querySelector("#querySelector");
-var opt1 = document.querySelector("#opt1");
-var opt2 = document.querySelector("#opt2");
-var opt3 = document.querySelector("#opt3");
-var opt4 = document.querySelector("#opt4");
-var options = document.querySelectorAll('input[type=radio]');
-var nextButton = document.querySelector("#nextButton");
-var result = document.querySelector("#result");
+const container = document.querySelector("#quizContainer");
+const quizQuestion = document.querySelector("#question");
+const choice1 = document.querySelector("#option1");
+const choice2 = document.querySelector("#option2");
+const choice3 = document.querySelector("#option3");
+const choice4 = document.querySelector("#option4");
+const grid = document.querySelector('#grid');
+const nextButton = document.querySelector("#nextButton");
+const result = document.querySelector("#result");
 
-var currentQuestion = 0,
-	 score = 0,
-	 totalQuestions = questions.length;
+let currentQuestion = 0,
+    score = 0,
+    totalQuestions = questions.length,
+    answer = [];
 
-function loadQuestion(questionIndex) {
-    // 'use strict';
-    var q = questions[questionIndex];
-    questionEl.textContent = (questionIndex + 1) + '. ' + q.question;
-    opt1.textContent = q.option1;
-    opt2.textContent = q.option2;
-    opt3.textContent = q.option3;
-    opt4.textContent = q.option4;
+let selectedOption = document.querySelectorAll('input[type=radio]');
+
+const checkRadioButton = () => {
+  for(let i = 0; i<selectedOption.length; i++){
+    if(selectedOption[i].checked){
+      nextButton.removeAttribute('disabled');
+      answer = selectedOption[i].value;
+    }
+  }
+};
+
+const unCheckRadioButton = () => {
+  for(let i=0; i<selectedOption.length; i++){
+    selectedOption[i].checked = false;
+  }
+};
+
+const setQuestion = (questionNumber) =>  {
+    let onQuestion = questions[questionNumber];
+    quizQuestion.textContent = questionNumber + 1 + ". " + onQuestion.question;
+
+    choice1.textContent = onQuestion.option1;
+    choice2.textContent = onQuestion.option2;
+    choice3.textContent = onQuestion.option3;
+    choice4.textContent = onQuestion.option4;
+    checkRadioButton();
 }
-function loadNextQuestion () {
-	var selectedOption = document.querySelector('input[type=radio:checked');
-	if(!selectedOption) {
-		alert('please select your answer');
-		return;
-	}		
-	var answer = selectedOption.value;
-	if(questions[currentQuestion].answer == answer) {
-		score += 10;
-	}
-	selectedOption.checked = false;
-	currentQuestion++;
+
+const setNextQuestion = () => {
+		 if(questions[currentQuestion].answer === answer) {
+    score += 5; 
+  }
+  unCheckRadioButton();
+  currentQuestion++;
+  
 	if(currentQuestion == totalQuestions - 1) {
-		nextButton.textContent = 'Finish';
+		nextButton.innerHtml = 'Finish';
+    nextButton.setAttribute('disabled', 'disabled');
 	}
-	if(currentQuestion == totalQuestions){
-		container.style.display = 'none';
-		resultCont.style.display = '';
-		resultCont.textContent = 'Your Score: ' + score;
-		return;
+	if(currentQuestion === totalQuestions){
+		grid.style.display = 'none';
+		result.style.display = 'block';
+		result.textContent = 'Your Score: ' + score;
 	}
-	loadQuestion(currentQuestion);
+  nextButton.setAttribute('disabled', 'disabled');
+  
+  if(currentQuestion < totalQuestions){
+    setQuestion(currentQuestion);
+  }
 }
-loadQuestion(currentQuestion);
+setQuestion(currentQuestion);

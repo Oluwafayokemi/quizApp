@@ -4,7 +4,14 @@ const questions = [{
 	"option2": "the study of computers, hardware and software.",
 	"option3": "the study of computers, hardware and software.",
 	"option4": "the study of problems, problem-solving, and the solutions that come out of the problem-solving process",
-	"answer": "2"
+	"answer": "1"
+}, {
+	"question": "A computer scienctists' goal is __",
+	"option1": "to develop algorithm",
+	"option2": "to get good pay",
+	"option3": "to build the globe",
+	"option4": "to develop algorithm",
+	"answer": "1"
 }, {
 	"question": "A computer scienctists' goal is __",
 	"option1": "to develop algorithm",

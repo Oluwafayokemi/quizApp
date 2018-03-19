@@ -1,15 +1,16 @@
 body {
-	background: linear-gradient(to right, #3a6ec1, #ffffff);
+  height: 100vh;
+	background: linear-gradient(to bottom right, #3a6ec1, #ffffff);
+  background-repeat: no-repeat;
 }
 .grid {
 	width: 600px;
-	height: 500px;
+	height: 35.25em;
 	margin: 0 auto;
 	background-color: #fff;
 	padding: 10px 50px 50px 50px;
 	border-radius: 50px;
-	border: 2px solid gray;
-	box-shadow: 10px 15px 5px gray;
+	border: none;
 	text-align: justify;
 }
 
@@ -24,36 +25,41 @@ body {
 }
 
 h1:hover {
-	background: linear-gradient(to right, #3a6ec1, #ffffff);
+	background: linear-gradient(to bottom right, #3a6ec1, #ffffff);
 }
 
 .grid #question {
 	font-family: sans-serif;
 	font-size: 30px;
-	color: gray;
+	color: #000;
 }
 
-.checkbox {
+.answer  {
 	margin-top: 30px;
+  width: 500px;
+  padding: 5px;
+  text-align: justify;
+  cursor: pointer;
 }
-input {
+
+input, label {
 	cursor: pointer;
 }
+
 .btn {
     text-decoration: none;
+    background-color: dodgerblue;
+    color: white;
     display: inline-block;
     padding: 8px 16px;
+    border-radius: 3px;
+    outline-style:none;
     float: right;
 }
 
-a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.previous {
-    background-color: #f1f1f1;
-    color: black;
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, .3);
 }
 
 .next {
@@ -69,4 +75,18 @@ a:hover {
 }
 .hr2 {
 margin-top: 50px;
+}
+
+.result {
+  display: none;
+  text-align: center;
+  font-size: 4em;
+  margin: 35% 0;
+  width: 100%;
+  height: 50px;
+ 
+}
+
+button:disabled {
+  opacity: .5;
 }
